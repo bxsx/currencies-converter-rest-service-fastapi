@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "currencies-converter-rest-service-fastapi"
+version = "0.1.0"
+description = "Currencies Converter REST Service written in FastAPI"
+authors = ["Bart Skowron <bxsx@bartskowron.com>"]
+license = "MIT License"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
