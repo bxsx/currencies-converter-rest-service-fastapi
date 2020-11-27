@@ -68,6 +68,7 @@ if [ -z "$WEB_CONCURRENCY" ]; then
 fi
 
 if [ -n "$DEVELOPMENT_VERSION" ]; then
+  sleep 5
   echo "#### \$DEVELOPMENT_VERSION environment variable is active ####"
   echo "################ Running in DEVELOPMENT MODE ################"
   exec uvicorn --reload --host "$HOST" --port "$PORT" \
