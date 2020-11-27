@@ -427,6 +427,9 @@ category = "main"
 optional = false
 python-versions = ">=3.6"
 
+[package.dependencies]
+python-dotenv = {version = ">=0.10.4", optional = true, markers = "extra == \"dotenv\""}
+
 [package.extras]
 dotenv = ["python-dotenv (>=0.10.4)"]
 email = ["email-validator (>=1.0.3)"]
@@ -684,7 +687,7 @@ python-versions = ">=3.6.1"
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.8"
-content-hash = "1f9c9a4a1c3227a8e3fcf4014215970f9454e04140d00e4bf20c8a0e70690598"
+content-hash = "a8e282c11f9ffce38df8f3009172828e0c4ffc8d2ee2c2093fa6aa4b1a3ee370"
 
 [metadata.files]
 aiojobs = [
