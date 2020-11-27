@@ -5,10 +5,6 @@ services:
     depends_on:
       - redis
       - worker
-    environment:
-      - REDIS_TYPE=redis
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
     ports:
       - "80:80"
     entrypoint: ./start.sh
