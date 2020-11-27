@@ -2,7 +2,8 @@ import pytest
 from fastapi import status
 from fastapi.testclient import TestClient
 
-from app.main import app, config
+from app.main import app
+from app.settings import config
 
 from .helpers.supported_currencies import currency_iter
 
