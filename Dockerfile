@@ -15,4 +15,6 @@ RUN poetry install --no-root --no-dev
 
 
 COPY ./app ./app/
-CMD uvicorn app.main:app --host 0.0.0.0 --port 80
+COPY ./start.sh ./
+RUN chmod u+x ./start.sh
+ENTRYPOINT ./start.sh
