@@ -9,6 +9,11 @@ MOCKED_CACHE_DATA = {
 }
 
 
+@pytest.fixture(scope="function")
+async def mocked_cache_data():
+    yield MOCKED_CACHE_DATA
+
+
 @pytest.fixture()
 async def mocked_redis():
     class MockedRedisFactory:
