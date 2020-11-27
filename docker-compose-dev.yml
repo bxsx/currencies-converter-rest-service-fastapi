@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  webservice:
+    environment:
+      - DEVELOPMENT_VERSION=True
+    volumes:
+      - ./:/app
