@@ -4,6 +4,7 @@ services:
     build: .
     depends_on:
       - redis
+      - worker
     environment:
       - REDIS_TYPE=redis
       - REDIS_HOST=redis
@@ -15,3 +16,10 @@ services:
     image: redis:6.0
     ports:
       - "6379:6379"
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.celery
+    entrypoint: celery -A app.celerytasks worker --loglevel=info
+    depends_on:
+      - redis
