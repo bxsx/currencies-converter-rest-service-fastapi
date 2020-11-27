@@ -17,4 +17,3 @@ RUN poetry install --no-root --no-dev
 COPY ./app ./app/
 COPY ./start.sh ./
 RUN chmod u+x ./start.sh
-ENTRYPOINT ./start.sh
