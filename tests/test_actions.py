@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 import pytest
 
 from app import actions, schemas
@@ -38,3 +40,20 @@ class TestActions:
         )
 
         assert abs(exchange_rate.quote.as_tuple().exponent) == expected_precision
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize(
+        "amount,quote,timestamp,expected",
+        (
+            (1, 2, "2020-01-01T00:00:00+00:00", 2),
+            (1000000, 1.23456789, "2020-01-01T00:00:00+00:00", 1234567.89),
+        ),
+    )
+    async def test_convert_currencies(self, amount, quote, timestamp, expected):
+        mocked_get_rate = schemas.ExchangeRate(quote=quote, timestamp=timestamp)
+
+        conversion = await actions.convert_currencies(
+            Decimal(amount), exchange_rate=mocked_get_rate
+        )
+
+        assert conversion == round(Decimal(expected), 6)

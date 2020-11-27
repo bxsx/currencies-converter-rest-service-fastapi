@@ -1,4 +1,4 @@
-from decimal import localcontext
+from decimal import Decimal, localcontext
 from typing import Any, Dict
 
 from fastapi import Depends
@@ -18,3 +18,14 @@ async def get_rate(
     current_rate = round(current_rate, config.DECIMAL_PRECISION)
 
     return schemas.ExchangeRate(quote=current_rate, timestamp=rates["timestamp"])
+
+
+async def convert_currencies(
+    amount: Decimal,
+    exchange_rate: schemas.ExchangeRate = Depends(get_rate),
+) -> Decimal:
+
+    with localcontext() as ctx:
+        ctx.prec = 2 * config.DECIMAL_PRECISION
+        result = exchange_rate.quote * amount
+    return round(result, config.DECIMAL_PRECISION)
