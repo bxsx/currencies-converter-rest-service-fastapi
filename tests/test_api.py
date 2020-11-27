@@ -2,18 +2,24 @@ import pytest
 from fastapi import status
 from fastapi.testclient import TestClient
 
-from app.main import app, config
+from app.main import app
+from app.settings import config
 
 client = TestClient(app)
 
 
 class TestAPI:
-    # TODO Add more test cases after adding the rates service. Mock in implementation for now.
     @pytest.mark.parametrize(
         "base,to,amount,rate,timestamp,expected",
         (
-            ("USD", "EUR", 1, 1.164428, "2020-01-01T00:00:00+00:00", 1.164428),
-            ("EUR", "PLN", 2, 1.164428, "2020-01-01T00:00:00+00:00", 2.328856),
+            ("USD", "EUR", 1, 2.0, "2020-01-01T00:00:00+00:00", 2.0),
+            ("EUR", "USD", 1, 2.0, "2020-01-01T00:00:00+00:00", 2.0),
+            ("USD", "PLN", 1, 2.0, "2020-01-01T00:00:00+00:00", 2.0),
+            ("PLN", "USD", 1, 2.0, "2020-01-01T00:00:00+00:00", 2.0),
+            ("PLN", "EUR", 1, 2.0, "2020-01-01T00:00:00+00:00", 2.0),
+            ("EUR", "PLN", 1, 2.0, "2020-01-01T00:00:00+00:00", 2.0),
+            ("CZK", "EUR", 1, 2.0, "2020-01-01T00:00:00+00:00", 2.0),
+            ("EUR", "CZK", 1, 2.0, "2020-01-01T00:00:00+00:00", 2.0),
         ),
     )
     def test_convert(self, base, to, amount, rate, timestamp, expected):

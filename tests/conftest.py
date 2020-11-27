@@ -1,4 +1,21 @@
+from decimal import Decimal
+
 import pytest
+
+from app import actions, schemas
+from app.main import app
+
+
+async def patch_service_get_rate():
+    return schemas.ExchangeRate(quote=2.0, timestamp="2020-01-01T00:00:00+00:00")
+
+
+async def patch_service_convert_currencies():
+    return Decimal(2.0)
+
+
+app.dependency_overrides[actions.get_rate] = patch_service_get_rate
+app.dependency_overrides[actions.convert_currencies] = patch_service_convert_currencies
 
 MOCKED_CACHE_DATA = {
     "USD": 1.102193,

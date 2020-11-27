@@ -1,9 +1,9 @@
 from decimal import Decimal
-from typing import Any
+from typing import Any, Dict
 
-from fastapi import APIRouter, Path
+from fastapi import APIRouter, Depends, Path
 
-from . import schemas
+from . import actions, schemas
 
 router = APIRouter()
 
@@ -26,16 +26,14 @@ async def convert(
         title="Amount of money",
         description="Amount of money that going to be converted",
     ),
-) -> Any:
-    # TODO: Get exchange_rate from service
-    quote = Decimal(1.164428)
-    timestamp = "2020-01-01T00:00:00+00:00"
-    result = amount * quote
+    exchange_rate: schemas.ExchangeRate = Depends(actions.get_rate),
+    result: Decimal = Depends(actions.convert_currencies),
+) -> Dict[str, Any]:
 
     return {
         "base": base,
         "to": to,
         "amount": amount,
-        "exchange_rate": {"quote": quote, "timestamp": timestamp},
+        "exchange_rate": exchange_rate,
         "result": result,
     }
