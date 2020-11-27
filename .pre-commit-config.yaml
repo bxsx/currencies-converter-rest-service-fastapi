@@ -29,6 +29,7 @@ repos:
     hooks:
       - id: mypy
         exclude: tests
+        additional_dependencies: [pydantic]
   - repo: https://github.com/pryorda/dockerfilelint-precommit-hooks
     rev: v0.1.0
     hooks:
