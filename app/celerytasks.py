@@ -36,6 +36,7 @@ config = Settings()
 celery = Celery(
     "tasks", broker=config.CELERY_BROKER_URL, backend=config.CELERY_RESULT_BACKEND
 )
+celery.conf.timezone = "CET"
 
 
 def _update_cache(rates: Dict[str, Union[Decimal, str]]) -> None:
