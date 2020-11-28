@@ -8,7 +8,7 @@ RUN pip install -U celery[redis] pydantic[dotenv] requests
 
 WORKDIR /app
 COPY ./.env ./
-COPY ./app/celerytasks.py ./app/
+COPY ./app/celery*.py ./app/
 COPY ./app/schemas.py ./app/
 
 USER celery

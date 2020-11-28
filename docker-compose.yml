@@ -19,3 +19,11 @@ services:
     entrypoint: celery -A app.celerytasks worker --loglevel=info
     depends_on:
       - redis
+  celery-beat:
+    build:
+      context: .
+      dockerfile: Dockerfile.celery
+    entrypoint: celery -A app.celerybeat beat --loglevel=info
+    depends_on:
+      - redis
+      - worker
