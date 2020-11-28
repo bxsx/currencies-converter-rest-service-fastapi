@@ -1,3 +1,5 @@
+from typing import Any
+
 from celery import Celery
 from celery.schedules import crontab
 from pydantic import BaseSettings
@@ -28,5 +30,7 @@ celery.conf.beat_schedule = {
     }
 }
 
-# Run a task on startup of heartbeat and fill in cache
-celerytasks.update_rates_via_openexchange.apply_async()
+
+@celery.on_after_finalize.connect
+def update_rates(sender: Any, **kwargs: Any) -> None:
+    celerytasks.update_rates_via_openexchange.apply_async()
