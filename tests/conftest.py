@@ -6,16 +6,24 @@ from app import actions, schemas
 from app.main import app
 
 
-async def patch_service_get_rate():
-    return schemas.ExchangeRate(quote=2.0, timestamp="2020-01-01T00:00:00+00:00")
+async def patch_action_get_rate():
+    return schemas.ExchangeRate(quote=1.123456, timestamp="2020-01-01T00:00:00+00:00")
 
 
-async def patch_service_convert_currencies():
-    return Decimal(2.0)
+async def patch_action_convert_currencies():
+    return Decimal(1.123456)
 
 
-app.dependency_overrides[actions.get_rate] = patch_service_get_rate
-app.dependency_overrides[actions.convert_currencies] = patch_service_convert_currencies
+@pytest.fixture
+async def patch_actions():
+    copy = app.dependency_overrides.copy()
+    app.dependency_overrides[actions.get_rate] = patch_action_get_rate
+    app.dependency_overrides[
+        actions.convert_currencies
+    ] = patch_action_convert_currencies
+    yield  # setup / teardown
+    app.dependency_overrides = copy
+
 
 MOCKED_CACHE_DATA = {
     "USD": 1.102193,
