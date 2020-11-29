@@ -4,7 +4,7 @@ LABEL maintainer="Bart Skowron <bxsx@bartskowron.com>"
 
 RUN groupadd celery && useradd --create-home --home-dir /app -g celery celery
 
-RUN pip install -U celery[redis] pydantic[dotenv] requests
+RUN pip install -U "celery[redis]~=5.0.2" "pydantic[dotenv]~=1.7.2" "requests~=2.25.0"
 
 WORKDIR /app
 COPY ./.env ./
