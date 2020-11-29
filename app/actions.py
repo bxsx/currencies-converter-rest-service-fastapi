@@ -24,7 +24,6 @@ async def convert_currencies(
     amount: Decimal,
     exchange_rate: schemas.ExchangeRate = Depends(get_rate),
 ) -> Decimal:
-
     with localcontext() as ctx:
         ctx.prec = 2 * config.DECIMAL_PRECISION
         result = exchange_rate.quote * amount

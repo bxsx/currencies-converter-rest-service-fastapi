@@ -29,7 +29,6 @@ async def convert(
     exchange_rate: schemas.ExchangeRate = Depends(actions.get_rate),
     result: Decimal = Depends(actions.convert_currencies),
 ) -> Dict[str, Any]:
-
     return {
         "base": base,
         "to": to,
