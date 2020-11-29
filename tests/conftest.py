@@ -1,4 +1,5 @@
 from decimal import Decimal
+from functools import wraps
 
 import pytest
 
@@ -23,6 +24,26 @@ async def patch_actions():
     ] = patch_action_convert_currencies
     yield  # setup / teardown
     app.dependency_overrides = copy
+
+
+def disable_patched_dep(dep):
+    """
+    Temporary disables already patched dependency for a decorated test case
+    """
+
+    def decorator(testcase):
+        @wraps(testcase)
+        def wrapper(*args, **kwargs):
+            old = app.dependency_overrides.pop(dep, None)
+            testcase(*args, **kwargs)
+            if old:
+                app.dependency_overrides[dep] = old
+            else:
+                app.dependency_overrides.pop(dep, None)
+
+        return wrapper
+
+    return decorator
 
 
 MOCKED_CACHE_DATA = {
