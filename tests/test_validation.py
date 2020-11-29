@@ -5,11 +5,11 @@ from fastapi.testclient import TestClient
 from app.main import app
 from app.settings import config
 
-from .helpers.supported_currencies import currency_iter
+from .helpers import supported_currencies
 
 client = TestClient(app)
 API_PREFIX = config.API_PREFIX
-c1, c2 = list(currency_iter(limit=2))
+c1, c2 = list(supported_currencies.currency_iter(limit=2))
 
 
 class TestValidationError:
@@ -33,7 +33,7 @@ class TestValidationError:
         response = client.get(f"{API_PREFIX}/convert/{c1}/{c2}/{amount}")
         assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
 
-    @pytest.mark.parametrize("currency", currency_iter())
+    @pytest.mark.parametrize("currency", supported_currencies.currency_iter())
     def test_currency_name_has_three_characters_only(self, currency):
         response = client.get(f"{API_PREFIX}/convert/{c1}/{currency}/123")
         assert response.status_code == status.HTTP_200_OK
