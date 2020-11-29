@@ -5,11 +5,11 @@ from app.schemas import SupportedCurrencyModel
 from .. import supported_currencies as sc
 
 
-def test_get_currency_iterator() -> None:
+def test_get_currency_iterator():
     iter(sc.currency_iter())
 
 
-def test_get_limited_currency_iterator() -> None:
+def test_get_limited_currency_iterator():
     maximum_value = len(list(sc.currency_iter()))
 
     for i in range(maximum_value):

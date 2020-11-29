@@ -4,7 +4,9 @@ from typing import Generator, Optional, Tuple
 from app.schemas import SupportedCurrencyModel
 
 
-def currency_iter(limit: Optional[int] = None) -> Generator[str, None, None]:
+def currency_iter(
+    limit: Optional[int] = None,
+) -> Generator[SupportedCurrencyModel, None, None]:
     if limit is None:
         limit = len(SupportedCurrencyModel)
 
