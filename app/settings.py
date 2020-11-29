@@ -3,8 +3,8 @@ from pydantic import BaseSettings
 
 
 class Settings(fastapi_plugins.RedisSettings, BaseSettings):
-    API_PREFIX: str = "/api/currencies"
-    DECIMAL_PRECISION: int = 6
+    API_PREFIX: str
+    DECIMAL_PRECISION: int
 
     class Config:
         env_file = ".env"
