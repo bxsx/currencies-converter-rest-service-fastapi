@@ -29,12 +29,12 @@ class TestValidationError:
             "foobar1234",
         ),
     )
-    def test_amount_should_be_positive_number(self, amount):
+    def test_amount_should_be_positive_number(self, amount, patch_actions):
         response = client.get(f"{API_PREFIX}/convert/{c1}/{c2}/{amount}")
         assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
 
     @pytest.mark.parametrize("currency", supported_currencies.currency_iter())
-    def test_currency_name_has_three_characters_only(self, currency):
+    def test_currency_name_has_three_characters_only(self, currency, patch_actions):
         response = client.get(f"{API_PREFIX}/convert/{c1}/{currency}/123")
         assert response.status_code == status.HTTP_200_OK
 
@@ -42,7 +42,9 @@ class TestValidationError:
         assert response.status_code == status.HTTP_200_OK
 
     @pytest.mark.parametrize("fake_currency", ("a", "ab", "abcd", "abcde", "abcdef"))
-    def test_return_422_if_currency_name_has_not_three_characters(self, fake_currency):
+    def test_return_422_if_currency_name_has_not_three_characters(
+        self, fake_currency, patch_actions
+    ):
         response = client.get(f"{API_PREFIX}/convert/{c1}/{fake_currency}/123")
         assert response.status_code == status.HTTP_422_UNPROCESSABLE_ENTITY
 
