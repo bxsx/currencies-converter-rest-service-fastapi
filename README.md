@@ -11,7 +11,7 @@
 
 |Method|URL|Path Params|Description|
 |------|---|------|-----------|
-|GET|/api/currencies/convert|:base/:to/:amount _(all required)_|Currencies convert controller|
+|**GET**|`/api/currencies/convert`|`:base/:to/:amount` _(all required)_|Currencies convert controller|
 
 See [Documentation](#Documentation) for more detailed information about the API.
 
