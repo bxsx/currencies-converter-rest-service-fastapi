@@ -151,7 +151,8 @@ See `start.sh` for more details.
    ```
    ============================ test session starts ============================
    platform darwin -- Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
-   rootdir: /Users/xsx/+dev/projects/currencies-converter-rest-service-fastapi, configfile: pyproject.toml
+   rootdir: /Users/xsx/+dev/projects/currencies-converter-rest-service-fastapi,
+   configfile: pyproject.toml
    plugins: mock-3.3.1, cov-2.10.1, asyncio-0.14.0
    collected 525 items
 
