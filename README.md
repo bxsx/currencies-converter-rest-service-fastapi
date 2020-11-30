@@ -208,6 +208,7 @@ See `start.sh` for more details.
 
 * [Python](https://www.python.org)
 * [FastAPI](https://fastapi.tiangolo.com)
+* [Swagger](https://swagger.io)
 * [Starlette](https://www.starlette.io)
 * [Pydantic](https://pydantic-docs.helpmanual.io)
 * [Celery](https://github.com/celery/celery)
