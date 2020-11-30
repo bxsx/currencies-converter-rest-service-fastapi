@@ -1,5 +1,8 @@
 # Currencies converter REST service
 
+![shields-kiwi] ![shields-swagger] ![shields-tests] ![shields-coverage] ![shields-commit]
+![shields-python] ![shields-lang] ![shields-black] ![shields-license]
+
 ### Main features
 
 * supported currencies: USD, EUR, CZK, PLN
@@ -224,3 +227,12 @@ Bart Skowron - [bxsx](https://github.com/bxsx) - bxsx@bartskowron.com
 
 [swagger]: .github/img/swagger.png
 [redoc]: .github/img/redoc.png
+[shields-swagger]: https://img.shields.io/swagger/valid/3.0?specUrl=https://raw.githubusercontent.com/bxsx/currencies-converter-rest-service-fastapi/main/openapi.json
+[shields-tests]: https://img.shields.io/badge/tests-525-success
+[shields-coverage]: https://img.shields.io/badge/coverage-97%25-success
+[shields-license]: https://img.shields.io/github/license/bxsx/currencies-converter-rest-service-fastapi
+[shields-black]: https://img.shields.io/badge/code%20style-black-000000.svg
+[shields-python]: https://img.shields.io/badge/python-v3.8-blue
+[shields-lang]: https://img.shields.io/github/languages/top/bxsx/currencies-converter-rest-service-fastapi
+[shields-commit]: https://img.shields.io/github/last-commit/bxsx/currencies-converter-rest-service-fastapi
+[shields-kiwi]: https://img.shields.io/badge/hi-kiwi%20%3A\)-00ad98
