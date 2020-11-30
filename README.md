@@ -149,24 +149,26 @@ See `start.sh` for more details.
    ```
 4. Verify all tests passed
    ```
-   ========================================= test session starts ==========================================
+   ============================ test session starts ============================
    platform darwin -- Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
-   rootdir: /Users/bxsx/+dev/projects/currencies-converter-rest-service-fastapi, configfile: pyproject.toml
+   rootdir: /Users/xsx/+dev/projects/currencies-converter-rest-service-fastapi, configfile: pyproject.toml
    plugins: mock-3.3.1, cov-2.10.1, asyncio-0.14.0
    collected 525 items
 
-   tests/test_actions.py ...............................                                            [  5%]
-   tests/test_api.py .............................................................................. [ 20%]
-   ................................................................................................ [ 38%]
-   ................................................................................................ [ 56%]
-   ................................................................................................ [ 74%]
-   ..........................................................................................       [ 92%]
-   tests/test_cache.py .....                                                                        [ 93%]
-   tests/test_celerybeat.py .                                                                       [ 93%]
-   tests/test_celerytasks.py .....                                                                  [ 94%]
-   tests/test_schemas.py ....                                                                       [ 95%]
-   tests/test_validation.py ....................                                                    [ 99%]
-   tests/helpers/test/test_supported_currencies.py ...                                              [100%]
+   tests/test_actions.py ...............................                 [  5%]
+   tests/test_api.py ................................................... [ 15%]
+   ..................................................................... [ 28%]
+   ..................................................................... [ 41%]
+   ..................................................................... [ 55%]
+   ..................................................................... [ 68%]
+   ..................................................................... [ 81%]
+   ............................................................          [ 92%]
+   tests/test_cache.py .....                                             [ 93%]
+   tests/test_celerybeat.py .                                            [ 93%]
+   tests/test_celerytasks.py .....                                       [ 94%]
+   tests/test_schemas.py ....                                            [ 95%]
+   tests/test_validation.py ....................                         [ 99%]
+   tests/helpers/test/test_supported_currencies.py ...                   [100%]
 
    ---------- coverage: platform darwin, python 3.8.6-final-0 -----------
    Name                 Stmts   Miss  Cover
@@ -184,7 +186,7 @@ See `start.sh` for more details.
    TOTAL                  134      4    97%
 
 
-   ======================================== 525 passed in 10.69s ==========================================
+   =========================== 525 passed in 10.17s ============================
    ```
 5. Test suite contains external services tests that can consume you quota.
    To run test suite excluding external tests
