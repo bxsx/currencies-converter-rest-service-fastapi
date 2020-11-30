@@ -95,7 +95,8 @@ curl -X GET "http://0.0.0.0/api/currencies/convert/USD/EUR/123" -H  "accept: app
 ## Documentation
 ### OpenAPI schema
 
-Go to `/openapi.json` to get the OpenAPI JSON schema.
+Go to `/openapi.json` to get the current OpenAPI JSON schema.
+Or view already generated [openapi.json](openapi.json) in the repository.
 
 ### Interactive API documentation (provided by Swagger UI)
 
