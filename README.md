@@ -1,6 +1,6 @@
 # Currencies converter REST service
 
-![shields-kiwi] ![shields-swagger] ![shields-tests] ![shields-coverage] ![shields-commit]
+![shields-swagger] ![shields-tests] ![shields-coverage] ![shields-commit]
 ![shields-python] ![shields-lang] ![shields-black] ![shields-license]
 
 ### Main features
@@ -237,4 +237,3 @@ Bart Skowron - [bxsx](https://github.com/bxsx) - bxsx@bartskowron.com
 [shields-python]: https://img.shields.io/badge/python-v3.8-blue
 [shields-lang]: https://img.shields.io/github/languages/top/bxsx/currencies-converter-rest-service-fastapi
 [shields-commit]: https://img.shields.io/github/last-commit/bxsx/currencies-converter-rest-service-fastapi
-[shields-kiwi]: https://img.shields.io/badge/hi-kiwi%20%3A\)-00ad98
