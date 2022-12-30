@@ -222,7 +222,7 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ## Contact
 
-Bart Skowron - [bxsx](https://github.com/bxsx) - bxsx@bartskowron.com
+Bart Skowron - [bxsx](https://github.com/bxsx) - bart@bxsx.dev
 
 [https://github.com/bxsx/currencies-converter-rest-service-fastapi](https://github.com/bxsx/currencies-converter-rest-service-fastapi)
 

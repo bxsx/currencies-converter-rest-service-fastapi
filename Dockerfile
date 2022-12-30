@@ -1,6 +1,6 @@
 FROM python:3.8
 
-LABEL maintainer="Bart Skowron <bxsx@bartskowron.com>"
+LABEL maintainer="Bart Skowron <bart@bxsx.dev>"
 
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | POETRY_HOME=/opt/poetry python && \
     cd /usr/local/bin && \
